@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.kambleaa007/grappleai",
+  "description": "GrappleAI MCP Server - Active Defense Layer for Consumers. Autonomous dispute resolution using MCP.",
+  "repository": {
+    "url": "https://github.com/kambleaa007/GrappleAI",
+    "source": "github",
+    "subfolder": "MCP_SERVER"
+  },
+  "version": "1.0.0",
+  "author": "GrappleAI Team",
+  "license": "MIT",
+  "homepage": "https://github.com/kambleaa007/GrappleAI",
+  "bugs": {
+    "url": "https://github.com/kambleaa007/GrappleAI/issues"
+  },
+  "keywords": [
+    "mcp",
+    "dispute-resolution",
+    "consumer-protection",
+    "ai-agent",
+    "negotiation",
+    "evidence-verification"
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@kambleaa007/grappleai-mcp-server",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

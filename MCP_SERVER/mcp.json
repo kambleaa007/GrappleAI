@@ -1,0 +1,148 @@
+{
+  "name": "grappleai",
+  "displayName": "GrappleAI MCP Server",
+  "version": "1.0.0",
+  "description": "Active Defense Layer for Consumers - Autonomous dispute resolution using MCP",
+  "author": "GrappleAI Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kambleaa007/GrappleAI.git"
+  },
+  "homepage": "https://github.com/kambleaa007/GrappleAI",
+  "bugs": {
+    "url": "https://github.com/kambleaa007/GrappleAI/issues"
+  },
+  "keywords": [
+    "mcp",
+    "dispute-resolution",
+    "consumer-protection",
+    "ai-agent",
+    "negotiation",
+    "evidence-verification"
+  ],
+  "tools": [
+    {
+      "name": "secure_evidence",
+      "description": "Clutches evidence securely for a dispute. If confidence > 0.8, triggers automatic fund freeze.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transaction_id": {
+            "type": "string",
+            "description": "Unique transaction identifier"
+          },
+          "damage_description": {
+            "type": "string",
+            "description": "Description of the damage or issue"
+          },
+          "confidence_score": {
+            "type": "number",
+            "description": "Confidence score between 0 and 1",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": ["transaction_id", "damage_description", "confidence_score"]
+      }
+    },
+    {
+      "name": "negotiate_refund",
+      "description": "Initiates autonomous negotiation with seller's agent based on evidence strength.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transaction_id": {
+            "type": "string",
+            "description": "Transaction identifier"
+          },
+          "seller_agent_id": {
+            "type": "string",
+            "description": "Seller's agent identifier"
+          }
+        },
+        "required": ["transaction_id", "seller_agent_id"]
+      }
+    },
+    {
+      "name": "generate_dispute_notice",
+      "description": "Generates formal dispute notice in specified language with legal references.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transaction_id": {
+            "type": "string",
+            "description": "Transaction identifier"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language code (en, hi, mr, etc.)",
+            "default": "en"
+          }
+        },
+        "required": ["transaction_id"]
+      }
+    },
+    {
+      "name": "verify_consumer_rights",
+      "description": "Verifies applicable consumer rights under Consumer Protection Act 2019.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transaction_id": {
+            "type": "string",
+            "description": "Transaction identifier"
+          },
+          "dispute_type": {
+            "type": "string",
+            "description": "Type of dispute",
+            "enum": ["damaged_goods", "non_delivery", "defective_service"]
+          }
+        },
+        "required": ["transaction_id", "dispute_type"]
+      }
+    },
+    {
+      "name": "get_dispute_status",
+      "description": "Retrieves current status of a dispute.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "dispute_id": {
+            "type": "string",
+            "description": "Dispute identifier"
+          }
+        },
+        "required": ["dispute_id"]
+      }
+    },
+    {
+      "name": "update_dispute_status",
+      "description": "Updates the status of a dispute.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "dispute_id": {
+            "type": "string",
+            "description": "Dispute identifier"
+          },
+          "status": {
+            "type": "string",
+            "description": "New status",
+            "enum": ["open", "in_progress", "resolved", "closed"]
+          }
+        },
+        "required": ["dispute_id", "status"]
+      }
+    }
+  ],
+  "installation": {
+    "npm": {
+      "package": "grappleai-mcp-server",
+      "command": "grappleai-mcp"
+    }
+  },
+  "requirements": {
+    "node": ">=18.0.0"
+  }
+}
